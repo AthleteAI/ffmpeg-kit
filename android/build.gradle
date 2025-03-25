@@ -54,6 +54,10 @@ android {
 }
 
 repositories {
+  // Add local repository for .aar files
+  flatDir {
+    dirs "libs"
+  }
   mavenCentral()
   google()
 
@@ -75,7 +79,6 @@ repositories {
       url defaultDir.toString()
       name androidSourcesName
     }
-
     logger.info(":${project.name}:reactNativeAndroidRoot ${defaultDir.canonicalPath}")
     found = true
   } else {
@@ -100,7 +103,6 @@ repositories {
           url androidPrebuiltBinaryDir.toString()
           name androidSourcesName
         }
-
         logger.info(":${project.name}:reactNativeAndroidRoot ${androidPrebuiltBinaryDir.canonicalPath}")
         found = true
       } else if (androidSourcesDir.exists()) {
@@ -108,7 +110,6 @@ repositories {
           url androidSourcesDir.toString()
           name androidSourcesName
         }
-
         logger.info(":${project.name}:reactNativeAndroidRoot ${androidSourcesDir.canonicalPath}")
         found = true
       }
@@ -118,12 +119,13 @@ repositories {
   if (!found) {
     throw new GradleException(
       "${project.name}: unable to locate React Native android sources. " +
-        "Ensure you have you installed React Native as a dependency in your project and try again."
+      "Ensure you have installed React Native as a dependency in your project and try again."
     )
   }
 }
 
 dependencies {
   api 'com.facebook.react:react-native:+'
-  implementation 'com.arthenica:ffmpeg-kit-' + safePackageName(safeExtGet('ffmpegKitPackage', 'https')) + ':' + safePackageVersion(safeExtGet('ffmpegKitPackage', 'https'))
+  // Use the local AAR from the libs folder.
+  implementation(name: 'ffmpeg-kit-full-gpl-6.0-2.LTS', ext: 'aar')
 }
