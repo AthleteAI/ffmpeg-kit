@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc      = true
   s.static_framework  = true
 
-  s.source       = { :git => "https://github.com/arthenica/ffmpeg-kit.git", :tag => "react.native.v#{s.version}" }
+  s.source = { :git => "https://github.com/AthleteAI/ffmpeg-kit.git#react-native-prebuilt-binaries", :tag => "react.native.v#{s.version}" }
 
   s.default_subspec   = 'https'
 
@@ -119,10 +119,11 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'full-gpl' do |ss|
-      ss.source_files      = '**/FFmpegKitReactNativeModule.m',
-                             '**/FFmpegKitReactNativeModule.h'
-      ss.dependency 'ffmpeg-kit-ios-full-gpl', "6.0"
-      ss.ios.deployment_target = '12.1'
+    ss.source_files = '**/FFmpegKitReactNativeModule.{m,h}'
+    # Instead of relying on the remote dependency, use prebuilt frameworks.
+    # Make sure the path here is relative to the podspec’s location.
+    ss.vendored_frameworks = 'ios/ffmpeg-kit-full-gpl-6.0-ios-framework/*.framework'
+    ss.ios.deployment_target = '12.1'
   end
 
   s.subspec 'full-gpl-lts' do |ss|
