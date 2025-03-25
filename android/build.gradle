@@ -127,5 +127,5 @@ repositories {
 dependencies {
   api 'com.facebook.react:react-native:+'
   // Use the local AAR from the libs folder.
-  implementation(name: 'ffmpeg-kit-full-gpl-6.0-2.LTS', ext: 'aar')
+  implementation(name: 'ffmpeg-kit-full-gpl-6.0-2', ext: 'aar')
 }
