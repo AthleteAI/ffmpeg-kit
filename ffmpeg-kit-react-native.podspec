@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc      = true
   s.static_framework  = true
 
-  s.source = { :git => "https://github.com/AthleteAI/ffmpeg-kit.git#react-native-prebuilt-binaries", :tag => "react.native.v#{s.version}" }
+  s.source = { :path => "." }
 
   s.default_subspec   = 'https'
 

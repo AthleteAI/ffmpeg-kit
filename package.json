@@ -1,5 +1,5 @@
 {
-  "name": "ffmpeg-kit-react-native",
+  "name": "@athleteai/ffmpeg-kit-react-native",
   "version": "6.0.2",
   "description": "FFmpeg Kit for React Native",
   "main": "src/index",
@@ -18,15 +18,15 @@
     "ffmpeg-kit",
     "ios"
   ],
-  "repository": "https://github.com/arthenica/ffmpeg-kit",
+  "repository": "https://github.com/athleteai/ffmpeg-kit",
   "author": "ARTHENICA <open-source@arthenica.com> (https://www.arthenica.com)",
   "license": "LGPL-3.0",
   "bugs": {
-    "url": "https://github.com/arthenica/ffmpeg-kit/issues"
+    "url": "https://github.com/athleteai/ffmpeg-kit/issues"
   },
-  "homepage": "https://github.com/arthenica/ffmpeg-kit",
+  "homepage": "https://github.com/athleteai/ffmpeg-kit",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.7.0",
