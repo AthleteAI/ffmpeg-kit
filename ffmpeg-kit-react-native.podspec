@@ -127,10 +127,11 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'full-gpl-lts' do |ss|
-      ss.source_files      = '**/FFmpegKitReactNativeModule.m',
-                             '**/FFmpegKitReactNativeModule.h'
-      ss.dependency 'ffmpeg-kit-ios-full-gpl', "6.0.LTS"
-      ss.ios.deployment_target = '10'
+    ss.source_files = '**/FFmpegKitReactNativeModule.{m,h}'
+    # Instead of relying on the remote dependency, use prebuilt frameworks.
+    # Make sure the path here is relative to the podspec’s location.
+    ss.vendored_frameworks = 'ios/ffmpeg-kit-full-gpl-6.0-ios-xcframework/*.framework'
+    ss.ios.deployment_target = '12.1'
   end
 
 end
